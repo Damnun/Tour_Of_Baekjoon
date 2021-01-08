@@ -1,13 +1,12 @@
 while True:
-    a, b = input().split()
+    a, b, c = input().split()
     a = int(a)
     b = int(b)
-    if a >= 1 and b <= 10000 : break
-        
-print(a+b)
-print(a-b)
-print(a*b)
-print(int(a/b))
-print(int(a%b))
+    c = int(c)
+    if a >= 1 and c <= 10000 : break
 
- #(0 < A, B < 10)`
+
+print((a+b)%c)
+print(((a%c)+(b%c))%c)
+print((a*b)%c)
+print(((a%c)*(b%c))%c)
