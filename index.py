@@ -1,12 +1,24 @@
-a = input()
-b = input()
-a = int(a)
+grade = input()
+grade = int(grade)
 
-for num in range(len(b)):
-    index = len(b) - num - 1
-    result = a * int(b[index])
-    print(result)
-    num -= 1
+while True:
+    if grade < 0 or grade > 100:
+        grade = input()
+        grade = int(grade)
+    else:
+        break
 
-result = a * int(b)
-print(result)
+if grade >= 90:
+    print('A')
+
+elif grade < 90 and grade >= 80:
+    print('B')
+
+elif grade < 80 and grade >= 70:
+    print('C')
+
+elif grade < 70 and grade >= 60:
+    print('D')
+
+else:
+    print('F')
