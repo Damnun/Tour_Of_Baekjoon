@@ -1,23 +1,21 @@
 while True:
-    x = input()
-    y = input()
-    x = int(x)
-    y = int(y)
+    h, m = input().split()
+    h = int(h)
+    m = int(m)
 
-    if x < -1000 or x > 1000 or x != 0:
+    if h >= 0 and h <= 23:
         break
-    if y < -1000 or y > 1000 or y != 0:
+    if m >= 0 and h <= 59:
         break
 
-if x > 0:
-    if y > 0:
-        print("1")
-    else:
-        print("4")
+if m >= 45:
+    m -= 45
 
 else:
-    if y > 0:
-        print("2")
+    if h-1 < 0:
+        h = 23
     else:
-        print("3")
+        h -= 1
+    m += 15
 
+print(h, m)
