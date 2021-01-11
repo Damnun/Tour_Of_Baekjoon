@@ -1,5 +1,7 @@
 a = int(input())
 for i in range(a):
     b, c = input().split()
-    result = int(b) + int(c)
-    print("Case #%d: %d" %(i+1, result))
+    b = int(b)
+    c = int(c)
+    result = b + c
+    print("Case #%d: %d + %d = %d" %(i+1, b, c, result))
