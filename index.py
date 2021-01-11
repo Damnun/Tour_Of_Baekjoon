@@ -1,12 +1,23 @@
-a = input()
-b = input()
-a = int(a)
+while True:
+    x = input()
+    y = input()
+    x = int(x)
+    y = int(y)
 
-for num in range(len(b)):
-    index = len(b) - num - 1
-    result = a * int(b[index])
-    print(result)
-    num -= 1
+    if x < -1000 or x > 1000 or x != 0:
+        break
+    if y < -1000 or y > 1000 or y != 0:
+        break
 
-result = a * int(b)
-print(result)
+if x > 0:
+    if y > 0:
+        print("1")
+    else:
+        print("4")
+
+else:
+    if y > 0:
+        print("2")
+    else:
+        print("3")
+
