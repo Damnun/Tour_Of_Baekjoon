@@ -1,5 +1,7 @@
-num = input()
-num = int(num)
+index = int(input())
 
-for i in range(1, 10):
-     print(f"{num} * {i} = {num*i}")
+for i in range(index):
+    a, b = input().split()
+    a = int(a)
+    b = int(b)
+    print(a+b)
