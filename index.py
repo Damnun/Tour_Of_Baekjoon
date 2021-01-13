@@ -1,10 +1,10 @@
-a = int(input())
-b = input().split()
-c = []
-for i in b:
-    c.append(int(i))
-del(b)
+a = 0
+b = []
 
-c.sort()
-print(c[0], c[a-1])
+while a != 9:
+    num = int(input())
+    b.append(num)
+    a += 1
 
+print(max(b))
+print(b.index(max(b))+1)
