@@ -1,8 +1,10 @@
-a = int(input())
+a, b = map(int, input().split())
+c = input().split()
+
 
 for i in range(a):
-    if i != 0:
-        print("")
-    for j in range(a-(i+1)):
-        print(" ", end='')
-    print("*"*(i+1), end='')
+    if int(c[i]) < b:
+        print(int(c[i]), end=' ')
+
+num = 3
+print(f"{num}", num)
