@@ -1,10 +1,12 @@
-a = 0
-b = []
+a = int(input())
+b = int(input())
+c = int(input())
 
-while a != 9:
-    num = int(input())
-    b.append(num)
-    a += 1
+result = a*b*c
+a = []
 
-print(max(b))
-print(b.index(max(b))+1)
+for i in str(result):
+    a.append(int(i))
+
+for i in range(10):
+    print(a.count(i))
