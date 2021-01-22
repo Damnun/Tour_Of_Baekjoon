@@ -16,6 +16,6 @@ a = b[::-1]
 result = tmp + index - 1
 
 if index % 2 == 0:
-    print(b[result], "/", a[result])
+    print(b[result], "/", a[result], sep="")
 else:
-    print(a[result], "/", b[result])
+    print(a[result], "/", b[result], sep="")
