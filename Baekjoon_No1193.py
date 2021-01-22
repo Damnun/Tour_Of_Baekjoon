@@ -1,20 +1,21 @@
 x = int(input())
-b = []
 tmp = x
+result = 0
 index = 0
+a = []
+b = []
 
 while tmp > 0:
     index += 1
     tmp -= index
 
 for i in range(index):
-    if i % 2 == 0:
-        tmp = i+1
-        while tmp > 0:
-            b.append(tmp)
-            tmp -= 1
-    else:
-        for j in range(i+1):
-            b.append((j+1))
+    b.append(i+1)
 
-print(b[x-1], "/", b[-2])
+a = b[::-1]
+result = tmp + index - 1
+
+if index % 2 == 0:
+    print(b[result], "/", a[result])
+else:
+    print(a[result], "/", b[result])
