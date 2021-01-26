@@ -22,3 +22,6 @@ while a != 0:
         count += 1
 
 print(count)
+
+
+# 중복값 제거 및 2중연산 고려해야함
