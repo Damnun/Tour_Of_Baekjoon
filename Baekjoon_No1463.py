@@ -1,6 +1,10 @@
 a = int(input())
 count = 0
+
 while a != 0:
+    if a / 9 >= 1 or a / 4 >= 1:
+        a -= 1
+        count += 1
 
     elif a % 3 == 0:
         a /= 3
