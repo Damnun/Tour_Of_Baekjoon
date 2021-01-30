@@ -1,12 +1,4 @@
-a = int(input())
-b = int(input())
-c = int(input())
-
-result = a*b*c
-a = []
-
-for i in str(result):
-    a.append(int(i))
-
-for i in range(10):
-    print(a.count(i))
+i = 3456
+result = (i + int(i / 1000) + int(i % 1000 / 100) + int(i % 1000 % 100 / 10)
+                      + int(i % 1000 % 100 % 10))
+print(result)
