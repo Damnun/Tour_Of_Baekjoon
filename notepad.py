@@ -1,11 +1,7 @@
-파이썬의 변수는 immutabel 형으로 변경할 수 없다.
-객체의 값을 변경한 것이 아닌 시스템 별개의 변수로
-업데이트 한 것이라 생각 (당연히 id(), 주소 다름)
-
-type(x), x의 자료형 확인
- '==' 값 비교, 'is' 객체 비교
-    
-    내표 표기 생성
-    n = [1,2,3,4,5]
-    r = [n*2 for ni in n if ni % 2 == 1]
-    -> n의 홀수 값 x2 한 리스트 r 생성 [2,6,10]
+n, t, c, p = map(int,input().split(" "))
+index = t
+cost = 0
+while index < n:
+    cost += c * p
+    index += t
+print(cost)
