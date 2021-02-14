@@ -6,7 +6,7 @@ for i in lista:
     if cost <= 1:
         print('-1')
         break
-    else:
+    else
         count += cost // i
         cost = cost % i
 print(count)
