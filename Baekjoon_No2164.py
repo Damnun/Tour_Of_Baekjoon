@@ -7,7 +7,6 @@ for i in range(data_count):
     data.append(i+1)
 
 while True:
-    print(data)
     if len(data) == 1:
         break
     data.popleft()
