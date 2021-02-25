@@ -1,24 +1,20 @@
 n, m = map(int, input().split())
-data = []
+l = []
+mini = []
 
 for _ in range(n):
-    data.append(input())
+    l.append(input())
 
-for i in range(n - 7):
-    for j in range(m - 7):
-        white_start = 0
-        black_start = 0
-        for k in range(i, i + 8):
-            for l in range(j, j + 8):
-                if (k + l) % 2 == 0:
-                    if data[k][l] != 'W':
-                        white_start += 1
-                    if data[k][l] != 'B':
-                        black_start += 1
-                else:
-                    if data[k][l] != 'B':
-                        white_start += 1
-                    if data[k][l] != 'W':
-                        black_start += 1
-
-print(min(white_start, black_start))
+for a in range(n - 7):
+    for i in range(m - 7):
+        idx1 = 0
+        idx2 = 0
+        for b in range(a, a + 8):
+            for j in range(i, i + 8):              # 8X8 범위를 B와 W로 번갈아가면서 검사
+                if (j + b)%2 == 0:
+                    if l[b][j] != 'W': idx1 += 1  
+                    if l[b][j] != 'B': idx2 += 1
+                else :
+                    if l[b][j] != 'B': idx1 += 1
+                    if l[b][j] != 'W': idx2 += 1
+print(min(idx1, idx2))
