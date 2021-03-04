@@ -1,0 +1,5 @@
+data_count = int(input())
+data = list(map(int, input().split()))
+max_data = max(data)
+data.remove(max_data)
+print(max_data + max(data))

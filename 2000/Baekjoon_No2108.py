@@ -11,7 +11,7 @@ result = []
 for _ in range(loop):
     result.append(int(sys.stdin.readline()))
 
-print("%.f"%(sum(result)/loop))
+print("%.f" % (sum(result)/loop))
 
 result.sort()
 index = len(result) // 2

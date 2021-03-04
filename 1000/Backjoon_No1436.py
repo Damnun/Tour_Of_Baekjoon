@@ -8,3 +8,4 @@ for i in range(1, 10000001):
     if count == data:
         print(i)
         break
+        

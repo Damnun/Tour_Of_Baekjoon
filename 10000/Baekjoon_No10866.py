@@ -49,4 +49,3 @@ for _ in range(input_count):
         else:
             sys.stdout.write("0\n")
             
-            
