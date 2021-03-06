@@ -1,14 +1,10 @@
 from collections import deque
-
-loop = int(input())
+import sys
+loop = int(sys.stdin.readline())
 for _ in range(loop):
-    queue = deque()
-    data = deque()
-    doc_count, index = map(int, input().split())
-    priority = list(map(int, input().split()))
-    result = []
-    for i in range(doc_count):
-        queue.append((i, priority[i]))
+    doc_count, index = map(int, sys.stdin.readline().split())
+    priority = list(map(int, sys.stdin.readline().split()))
+    queue = deque([(i, priority[i])for i in range(doc_count)])
 
     idx = 0
     while idx < doc_count:
