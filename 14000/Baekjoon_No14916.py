@@ -1,12 +1,14 @@
-cost = int(input())
-lista = [5, 2]
+n = int(input())
+
 count = 0
 
-for i in lista:
-    if cost <= 1:
-        print('-1')
+while n > 0:
+    if n % 5 == 0:
+        print(n // 5 + count)
         break
-    else
-        count += cost // i
-        cost = cost % i
-print(count)
+
+    n -= 2
+    count += 1
+
+if n < 0:
+    print('-1')
