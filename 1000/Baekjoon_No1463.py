@@ -1,23 +1,21 @@
-a = int(input())
-count = 0
+"""
+X가 3으로 나누어 떨어지면, 3으로 나눈다.
+X가 2로 나누어 떨어지면, 2로 나눈다.
+1을 뺀다.
+"""
 
-while a != 1:
+x = int(input())
 
-    if (a-1) % 9 == 0 or (a-1) % 4 == 0:
-        a -= 1
-        count += 1
+dp = [0] * 1000001
 
-    if a % 3 == 0 and (a / 3) >= (a / 2):
-        a = a//3
-        count += 1
+for i in range(2, x + 1):
+    dp[i] = dp[i - 1] + 1
 
-    elif a % 2 == 0 and (a / 2) >= (a / 3):
-        a = a//2
-        count += 1
+    if i % 2 == 0:
+        dp[i] = min(dp[i], dp[i // 2] + 1)
 
+    if i % 3 == 0:
+        dp[i] = min(dp[i], dp[i // 3] + 1)
 
-print(count)
-
-
-# 중복값 제거 및 2중연산 고려해야함
-# 다이나믹 프로그래밍
+    print("dp[", i, "] = ", dp[i])
+print(dp[x])
