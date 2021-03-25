@@ -18,3 +18,7 @@ list.append와 list.pop(0)을 이용하면 리스트를 큐처럼 사용할 수 
 하지만 pop()의 time complexity는 O(1)인 반면 pop(0)의 time complexity는
 O(N)이기 때문에 시간이 오래 걸린다.
 따라서 시간 복잡도를 고려해 리스트는 큐로 사용하지 않는다.
+
+
+https://glanceyes.com/algorithm/502
+    https://glanceyes.tistory.com/61
