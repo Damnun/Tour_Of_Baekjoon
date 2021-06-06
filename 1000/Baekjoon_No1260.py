@@ -1,54 +1,51 @@
-from collections import deque
+vertex_count, edge_count, vertex_number = map(int, input().split())
+graph_list = [[] for _ in range(vertex_count + 1)]
 
+# 정점간의 노드관계를 입력
+for _ in range(edge_count):
+    start, end = map(int, input().split())
 
-def DFS(graph, root):
+    if graph_list[start].count(end) == 0:
+        graph_list[start].append(end)
+    if graph_list[end].count(start) == 0:
+        graph_list[end].append(start)
+
+# bfs(주위 값들을 리스트에 넣으며 진행)
+def bfs(graph, root):
     visited = []
-    stack = [root]
-
-    while stack:
-        n = stack.pop()  # 스택의 제일 위 노드를 n에 저장
-        if n not in visited:
-            visited.append(n)  # 방문 처리
-            if n in graph:
-                temp = list(set(graph[n]) - set(visited))
-                temp.sort(reverse=True)
-                stack += temp
-    return " ".join(str(i) for i in visited)
-
-
-def BFS(graph, root):
-    visited = []
-    queue = deque([root])
+    queue = [root]
 
     while queue:
-        n = queue.popleft()
+        n = queue.pop(0)
         if n not in visited:
             visited.append(n)
-            if n in graph:
-                temp = list(set(graph[n]) - set(visited))
-                temp.sort()
-                queue += temp
-    return " ".join(str(i) for i in visited)
+            for i in sorted(graph[n]): # bfs이므로 오름차순으로 정렬된 값을 입력
+                if i not in visited:
+                    queue.append(i)
+    return visited
 
 
-graph = {}
-n = input().split(' ')
-node, edge, start = [int(i) for i in n]
-for i in range(edge):
-    edge_info = input().split(' ')
-    n1, n2 = [int(j) for j in edge_info]  # edge_info를 공백으로 분리하여 n1, n2에 넣어줌
+def dfs(graph, root):
+    visited = []
+    queue = [root]
 
-    # n1 -> n2로 연결하는 graph
-    if n1 not in graph:
-        graph[n1] = [n2]
-    elif n2 not in graph[n1]:
-        graph[n1].append(n2)
+    while queue:
+        n = queue.pop()
+        if n not in visited:
+            visited.append(n)
+            queue.extend(sorted(graph[n], reverse=True)) # dfs 스택구조이므로 거꾸로 값을 넣어주어야함
+    return visited
 
-    # n2 -> n1으로 연결하는 graph
-    if n2 not in graph:
-        graph[n2] = [n1]
-    elif n1 not in graph[n2]:
-        graph[n2].append(n1)
 
-print(DFS(graph, start))
-print(BFS(graph, start))
+print(*dfs(graph_list, vertex_number))
+print(*bfs(graph_list, vertex_number))
+
+"""
+BFS/DFS의 재공부
+몇 번을 해도 이해되지 않는다는건 기초부터 잘못되었다는 뜻일테다.
+BFS와 DFS를 이론을 기억해 최대한 스스로 구현해보았다. 
+BFS와 DFS에서 스택 구조와 큐 구조에 따른 데이터의 정렬 방식의 차이를 이해하는게 시간이 조금 걸렸던 것 같다.
+
+1차 32144, 736
+2차 127040, 244
+"""
