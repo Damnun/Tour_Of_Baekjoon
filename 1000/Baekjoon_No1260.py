@@ -10,6 +10,7 @@ for _ in range(edge_count):
     if graph_list[end].count(start) == 0:
         graph_list[end].append(start)
 
+
 # bfs(주위 값들을 리스트에 넣으며 진행)
 def bfs(graph, root):
     visited = []
@@ -19,7 +20,7 @@ def bfs(graph, root):
         n = queue.pop(0)
         if n not in visited:
             visited.append(n)
-            for i in sorted(graph[n]): # bfs이므로 오름차순으로 정렬된 값을 입력
+            for i in sorted(graph[n]):  # bfs이므로 오름차순으로 정렬된 값을 입력
                 if i not in visited:
                     queue.append(i)
     return visited
@@ -33,7 +34,7 @@ def dfs(graph, root):
         n = queue.pop()
         if n not in visited:
             visited.append(n)
-            queue.extend(sorted(graph[n], reverse=True)) # dfs 스택구조이므로 거꾸로 값을 넣어주어야함
+            queue.extend(sorted(graph[n], reverse=True))  # dfs 스택구조이므로 거꾸로 값을 넣어주어야함
     return visited
 
 
