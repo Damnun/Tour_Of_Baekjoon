@@ -244,3 +244,11 @@ for _ in range(test_case):
 으로 가정하고 코딩하였음
 U- D- L+ R+
 """
+
+"""
+-는 따로 구현해 줄 필요 없음, +를 3번하면 -가 나옴
+https://crackerjacks.tistory.com/19
+각 테스트 케이스에 대한 디버깅
+함수에 direction을 넣어 move만 하게끔 바꿔보자
+
+"""
