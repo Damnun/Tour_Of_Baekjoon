@@ -24,6 +24,7 @@ for _ in range(T):
         print(heapq.nlargest(1, result)[0], heapq.nsmallest(1, result)[0])
 
 """
+시간초과 이지만 알아두면 유용할 지식일 것 같다.
 heapq를 이용한 새로운 풀이방법
 컬렉션 내부에서 가장 크거나 작은 N개의 아이템을 찾는법
 heapq.nlargest(n, iterable, key=None)
