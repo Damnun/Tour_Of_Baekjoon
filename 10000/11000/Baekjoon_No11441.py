@@ -13,3 +13,8 @@ for _ in range(M):
         print(dp[end - 1])
     else:
         print(dp[end - 1] - dp[start - 2])
+
+"""
+DP 메모이제이션을 이용해 시간 초과 해결
+11659번과 마찬가지의 해법으로 풀이하였따.
+"""
