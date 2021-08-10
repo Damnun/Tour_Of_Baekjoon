@@ -22,3 +22,6 @@ O(N)이기 때문에 시간이 오래 걸린다.
 
 https://glanceyes.com/algorithm/502
     https://glanceyes.tistory.com/61
+        
+Python 숏코딩을 위한 팁 정리
+https://computer-choco.tistory.com/397
