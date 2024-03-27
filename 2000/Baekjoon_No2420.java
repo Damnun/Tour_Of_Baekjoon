@@ -7,10 +7,10 @@ public class b2420 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
-
-        int a = Integer.parseInt(st.nextToken());
-        int b = Integer.parseInt(st.nextToken());
-        System.out.println(Math.abs(a - b));
+        long a = Long.parseLong(st.nextToken());
+        long b = Long.parseLong(st.nextToken());
         
+        System.out.println(Math.abs(a - b));
+
     }
 }
