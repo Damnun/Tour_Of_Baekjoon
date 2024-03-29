@@ -4,6 +4,7 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
+
 public class b10816 {
     public static int[] a;
     public static void main(String[] args) throws IOException {
@@ -20,11 +21,13 @@ public class b10816 {
 
         int m = Integer.parseInt(br.readLine());
         st = new StringTokenizer(br.readLine());
+        StringBuilder sb = new StringBuilder();
 
         for (int i = 0; i < m; i++) {
             int key = Integer.parseInt(st.nextToken());
-            System.out.println(upperBound(key) - lowerBound(key));
+            sb.append(upperBound(key) - lowerBound(key)).append(' ');
         }
+        System.out.println(sb);
     }
 
     public static int lowerBound(int key) {
