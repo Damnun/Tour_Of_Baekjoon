@@ -1,61 +1,56 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.*;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.StringTokenizer;
 
 public class b16928 {
-
-    static int N, M, result;
-    static int s = 1, end = 100;
-    static boolean[] visited;
-    static Map<Integer, Integer> snakeAndLadder;
+    static int[] board;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
-        N = Integer.parseInt(st.nextToken());
-        M = Integer.parseInt(st.nextToken());
+        int n = Integer.parseInt(st.nextToken());
+        int m = Integer.parseInt(st.nextToken());
 
-        visited = new boolean[101];
-        snakeAndLadder = new HashMap<>();
+        board = new int[101];
+        for (int i = 1; i < board.length; i++) {
+            board[i] = i;
+        }
 
-        for (int i = 0; i < N; i++) {
+        int k = n + m;
+        while (k-- > 0) {
             st = new StringTokenizer(br.readLine());
             int x = Integer.parseInt(st.nextToken());
             int y = Integer.parseInt(st.nextToken());
-            snakeAndLadder.put(x, y);
+
+            board[x] = y;
         }
 
-        bfs();
-        System.out.println(result);
+        System.out.println(bfs(1));
     }
 
-    static void bfs() {
-        Queue<Integer> queue = new LinkedList<>();
-        queue.add(s);
-        visited[s] = true;
+    private static int bfs(int startNode) {
+        int[] check = new int[101];
+        Queue<Integer> q = new LinkedList<>();
+        q.offer(startNode);
+        check[startNode] = 0;
 
-        while(!queue.isEmpty()) {
-            result++;
-            for (int i = 0, queueSize = queue.size(); i < queueSize; i++) {
-                int cur = queue.poll();
+        while (true) {
+            int visitedNum = q.poll();
+            for (int i = 1; i < 7; i++) {
+                int newNode = visitedNum + i;
 
-                for (int j = 1; j <= 6; j++) {
-                    int move = cur + j;
-                    if (move == end)
-                        return;
-
-                    if (move > end)
-                        continue;
-
-                    if (visited[move])
-                        continue;
-
-                    visited[move] = true;
-                    if (snakeAndLadder.containsKey(move)) {
-                        move = snakeAndLadder.get(move);
-                    }
-                    queue.add(move);
+                if (newNode > 100) {
+                    continue;
+                }
+                if (check[board[newNode]] == 0) {
+                    q.offer(board[newNode]);
+                    check[board[newNode]] = check[visitedNum] + 1;
+                }
+                if (board[newNode] == 100) {
+                    return check[100];
                 }
             }
         }
